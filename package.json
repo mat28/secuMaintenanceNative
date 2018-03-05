@@ -23,6 +23,10 @@
     "react-native-datepicker": "1.6.0",
     "react-native-linear-gradient": "^2.4.0",
     "react-native-maps-directions": "^1.4.1",
+<<<<<<< HEAD
+=======
+    "react-native-sweet-alert": "^1.0.7",
+>>>>>>> master
     "react-native-webrtc": "^1.58.3",
     "react-navigation": "1.0.0-beta.19",
     "throttle-debounce": "1.0.1"
