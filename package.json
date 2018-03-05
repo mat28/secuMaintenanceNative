@@ -21,8 +21,8 @@
     "react-native-awesome-alerts": "^1.0.6",
     "react-native-card-carousel": "git+https://github.com/wcandillon/react-native-card-carousel#6dc8048",
     "react-native-datepicker": "1.6.0",
+    "react-native-linear-gradient": "^2.4.0",
     "react-native-maps-directions": "^1.4.1",
-    "react-native-sweet-alert": "^1.0.7",
     "react-native-webrtc": "^1.58.3",
     "react-navigation": "1.0.0-beta.19",
     "throttle-debounce": "1.0.1"

@@ -1,7 +1,7 @@
 // @flow
 import * as React from "react";
 import {View, StyleSheet} from "react-native";
-import {LinearGradient} from "expo";
+import LinearGradient from "react-native-linear-gradient";
 
 import commonColor from "../../native-base-theme/variables/commonColor";
 
