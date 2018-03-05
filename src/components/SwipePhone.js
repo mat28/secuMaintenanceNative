@@ -1,7 +1,7 @@
 // @flow
 import * as React from "react";
 import {Button, Icon, SwipeRow, Footer} from "native-base";
-import { EvilIcons } from "react-native-vector-icons";
+//import { EvilIcons } from "react-native-vector-icons";
 
 import Container from "./Container"
 import type {NavigationProps, ChildrenProps} from "./Types";
