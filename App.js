@@ -76,7 +76,7 @@ export default class App extends React.Component<{}> {
     render(): React.Node {
         const {ready, authStatusReported, isLoggedIn, store} = this;
         const onNavigationStateChange = () => undefined;
-        return <Provider {...{store}}>
+        return (<Provider {...{store}}>
             <StyleProvider style={getTheme(variables)}>
                 {
                     ready && authStatusReported ?
@@ -90,7 +90,7 @@ export default class App extends React.Component<{}> {
                         <AppLoading startAsync={null} onError={null} onFinish={null} />
                 }
             </StyleProvider>
-        </Provider>;
+        </Provider>);
     }
 }
 

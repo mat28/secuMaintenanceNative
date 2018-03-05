@@ -1,7 +1,7 @@
 // @flow
 import * as React from "react";
 import {Button, Header as NBHeader, Left, Body, Title, Right, Icon, Content, Fab} from "native-base";
-import { EvilIcons } from "@expo/vector-icons";
+import { EvilIcons } from "react-native-vector-icons";
 
 import Container from "./Container"
 import type {NavigationProps, ChildrenProps} from "./Types";
