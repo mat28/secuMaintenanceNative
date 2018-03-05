@@ -1,0 +1,205 @@
+{
+  "rules": {
+    "users": {
+      "$uid": {
+        ".validate": "newData.hasChildren(['profile'])",
+        "profile": {
+          ".validate": "newData.hasChildren(['lastName', 'firstName', 'birthday', 'isAdmin', 'phoneNumber', 'emailNotifications', 'phoneNotifications', 'matricule'])",
+          "lastName": {
+            ".validate": "newData.isString()"
+          },
+          "firstName": {
+            ".validate": "newData.isString()"
+          },
+          "birthday": {
+            ".validate": "newData.isNumber()"
+          },
+          "isAdmin": {
+            ".validate": "newData.isBoolean()"
+          },
+          "phoneNumber": {
+            ".validate": "newData.isString()"
+          },
+          "emailNotifications": {
+            ".validate": "newData.isBoolean()"
+          },
+          "phoneNotifications": {
+            ".validate": "newData.isBoolean()"
+          },
+          "matricule": {
+            ".validate": "newData.isString()"
+          },
+          "$other": {
+            ".validate": "false"
+          }
+        },
+        "lists": {
+          "$key1": {
+            ".validate": "newData.hasChildren(['name', 'description'])",
+            "name": {
+              ".validate": "newData.isString()"
+            },
+            "description": {
+              ".validate": "newData.isString()"
+            },
+            "items": {
+              "$key2": {
+                ".validate": "newData.hasChildren(['title', 'done'])",
+                "title": {
+                  ".validate": "newData.isString()"
+                },
+                "done": {
+                  ".validate": "newData.isBoolean()"
+                },
+                "$other": {
+                  ".validate": "false"
+                }
+              },
+              ".validate": "newData.hasChildren()"
+            },
+            "$other": {
+              ".validate": "false"
+            }
+          },
+          ".validate": "newData.hasChildren()"
+        },
+        "tasks": {
+          "$key3": {
+            ".validate": "newData.hasChildren(['title', 'time', 'date', 'imageURL', 'done'])",
+            "title": {
+              ".validate": "newData.isString()"
+            },
+            "time": {
+              ".validate": "newData.isNumber()"
+            },
+            "date": {
+              ".validate": "newData.isString()"
+            },
+            "imageURL": {
+              ".validate": "newData.isString()"
+            },
+            "done": {
+              ".validate": "newData.isBoolean()"
+            },
+            "$other": {
+              ".validate": "false"
+            }
+          },
+          ".validate": "newData.hasChildren()"
+        },
+        "$other": {
+          ".validate": "false"
+        },
+        ".read": "auth != null",
+        ".write": "auth != null && auth.uid == $uid"
+      }
+    },
+    "company": {
+      "$id": {
+        ".validate": "newData.hasChildren(['name', 'identification', 'address', 'zipcode', '_geoloc', 'city', 'phoneNumber'])",
+        "name": {
+          ".validate": "newData.isString()"
+        },
+        "identification": {
+          ".validate": "newData.isString()"
+        },
+        "address": {
+          ".validate": "newData.isString()"
+        },
+        "zipcode": {
+          ".validate": "newData.isString()"
+        },
+        "_geoloc": {
+          ".validate": "newData.hasChildren(['lat', 'lng'])",
+          "lat": {
+            ".validate": "newData.isString()"
+          },
+          "lng": {
+            ".validate": "newData.isString()"
+          },
+          "$other": {
+            ".validate": "false"
+          }
+        },
+        "city": {
+          ".validate": "newData.isString()"
+        },
+        "phoneNumber": {
+          ".validate": "newData.isString()"
+        },
+        "Tasks": {
+          "$key3": {
+            ".validate": "newData.hasChildren(['title', 'time', 'date', 'imageURL', 'done'])",
+            "title": {
+              ".validate": "newData.isString()"
+            },
+            "time": {
+              ".validate": "newData.isNumber()"
+            },
+            "date": {
+              ".validate": "newData.isString()"
+            },
+            "imageURL": {
+              ".validate": "newData.isString()"
+            },
+            "done": {
+              ".validate": "newData.isBoolean()"
+            },
+            "$other": {
+              ".validate": "false"
+            }
+          },
+          ".validate": "newData.hasChildren()"
+        },
+        "Contacts": {
+          "$key4": {
+            ".validate": "newData.hasChildren(['lastName', 'firstName', 'email', 'phoneNumber'])",
+            "lastName": {
+              ".validate": "newData.isString()"
+            },
+            "firstName": {
+              ".validate": "newData.isString()"
+            },
+            "email": {
+              ".validate": "newData.isString()"
+            },
+            "phoneNumber": {
+              ".validate": "newData.isString()"
+            },
+            "$other": {
+              ".validate": "false"
+            }
+          },
+          ".validate": "newData.hasChildren()"
+        },
+        "$other": {
+          ".validate": "false"
+        },
+        ".read": "auth != null",
+        ".write": "auth != null && auth.uid == ref[uid]"
+      }
+    },
+    "contact": {
+      "$id": {
+        ".validate": "newData.hasChildren(['lastName', 'firstName', 'email', 'phoneNumber'])",
+        "lastName": {
+          ".validate": "newData.isString()"
+        },
+        "firstName": {
+          ".validate": "newData.isString()"
+        },
+        "email": {
+          ".validate": "newData.isString()"
+        },
+        "phoneNumber": {
+          ".validate": "newData.isString()"
+        },
+        "$other": {
+          ".validate": "false"
+        },
+        ".read": "auth != null",
+        ".write": "auth != null && auth.uid == ref.parent().child('uid').val()"
+      }
+    }
+  }
+}

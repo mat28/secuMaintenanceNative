@@ -1,0 +1,91 @@
+path /users/{uid} is User {
+    read() { isAuthenticated() }
+    write() { isCurrentUser(uid) }
+}
+
+path /company/{id} is Company {
+    read() {isAuthenticated()}
+    write(){ partOf(id) }
+}
+
+path /contact/{id} is Contact {
+   read() {isAuthenticated()}
+   write(){ isCurrentUserParent() }
+}
+
+
+type Lists extends List[] {}
+type Tasks extends Task[] {}
+type ListItems extends ListItem[] {}
+type Participants extends Participant[] {}
+type Contacts extends Contact[] {}
+
+
+type Geoloc {
+  lat : String,
+  lng : String
+}
+
+type Company {
+  name : String,
+  identification : String,
+  address: String,
+  zipcode : String,
+  _geoloc : Geoloc,
+  city : String,
+  phoneNumber : String,
+  Tasks : Tasks,
+  Contacts : Contacts
+}
+
+type Contact {
+  lastName : String,
+  firstName : String,
+  email : String,
+  phoneNumber : String
+}
+
+type User {
+  profile: Profile,
+  lists: Lists,
+  tasks: Tasks,
+}
+
+type Profile {
+  lastName: String,
+  firstName : String,
+  birthday: Number,
+  isAdmin : Boolean,
+  phoneNumber: String,
+  emailNotifications: Boolean,
+  phoneNotifications: Boolean,
+  matricule : String,
+}
+
+type List {
+  name: String,
+  description: String,
+  items: ListItems,
+}
+
+type ListItem {
+  title: String,
+  done: Boolean,
+}
+
+type Task {
+  title: String,
+  time: Number,
+  date : String,
+  imageURL : String
+  done: Boolean,
+}
+
+type Participant {
+  uid: String,
+}
+
+partOf(id) {auth != null && auth.uid == ref[uid] }
+isCurrentUserParent(){ auth != null && auth.uid == ref.parent().uid }
+isAuthenticated() { auth != null }
+isCurrentUser(uid) { auth != null && auth.uid == uid }
